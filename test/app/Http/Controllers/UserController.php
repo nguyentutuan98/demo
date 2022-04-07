@@ -234,7 +234,7 @@ class UserController extends Controller
         
            $id=$req->id;
            $data=DB::table('user')->where('id',$id)->get();
-        
+            
            foreach($data as $key=>$value)
            {
             $birth=date('d-m-Y', strtotime($value->birthday));
@@ -432,6 +432,7 @@ class UserController extends Controller
     {
        
         $new=UserModel::find($req->id);
+        var_dump($new);
         $new->active=0;
         $new->save();
         if($new){
@@ -462,11 +463,17 @@ class UserController extends Controller
     }
     public function exportcsv(Request $req)
     {   
-        $data =array();
-        $data=$req->data;
-        var_dump($data);die;
+        
+        //return (new Exportcsv($check))->download('user.csv');
         return Excel::download(new Exportcsv ,'user.csv');
 
     }
+    public function getid (Request $req)
+    {
+        $check=array();
+        $check=$req->check;
+        var_dump($check);die;
+    }
+        
     
 }

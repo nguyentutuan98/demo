@@ -36,3 +36,4 @@ Route::post('user/change','App\Http\Controllers\UserController@save_change');
 Route::get('user/unactive','App\Http\Controllers\UserController@unactive');
 Route::get('user/active','App\Http\Controllers\UserController@active');
 Route::get('user/export','App\Http\Controllers\UserController@exportcsv');
+Route::get('user/getid','App\Http\Controllers\UserController@getid');

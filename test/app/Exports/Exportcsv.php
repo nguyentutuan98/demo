@@ -3,16 +3,16 @@
 namespace App\Exports;
 
 use App\Models\UserModel;
-use Maatwebsite\Excel\Concerns\FromCollection;
+
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromCollection;
+
 
 
 class Exportcsv implements FromCollection,WithHeadings
 
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
+    
     public function headings(): array
     {
         return [
@@ -25,13 +25,12 @@ class Exportcsv implements FromCollection,WithHeadings
 
         ];
     }
+    
+
    
     public function collection()
     {
-        //return UserModel::all();
-
         $data=UserModel::getUserExprot();
-        
         foreach($data as $key => $value)
         {
            
@@ -43,8 +42,8 @@ class Exportcsv implements FromCollection,WithHeadings
             $value->gender ='Female';
         
         }
-
-        return collect($data);
+       // dd($data);
+       return collect($data);
     }
    
 }

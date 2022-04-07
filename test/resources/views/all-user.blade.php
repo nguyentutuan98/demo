@@ -23,10 +23,10 @@
                <a class="nav-link" style="right:10px ;" href="{{url('/welcome')}}">Trang chủ</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Css</a>
+               <a class="nav-link" href="#"></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Bootstrap</a>
+               <a class="nav-link" href="#"></a>
             </li>
          </ul>
       </nav>
@@ -329,7 +329,8 @@
             Add</button>
             <a href="{{url('user/export')}}">
             <button class="btn btn-primary float-right" id="exportcsv"type="button" style=" float: right;">
-               Down file csv</button></a>
+              All down file csv</button></a>
+             
             </div>
   
 
@@ -338,7 +339,7 @@
             <table class="table table-bordered">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="active" class="choose"  id="select-all" ></th>
+                     <th><input type="checkbox" name="active" class=""  id="select-all" ></th>
                      <th>no </th>
                      <th>email</th>
                      <th>username</th>
@@ -407,6 +408,7 @@
 	
 	</div>
 <script type="text/javascript" src="../public/js/jquery-3.6.0.js"></script>
+
 <script type="text/javascript" src ="../public/js/remove-user.js"></script>
 <script type="text/javascript" src ="../public/js/create-user.js"></script>
 <script type="text/javascript" src ="../public/js/update-user.js"></script>
@@ -414,8 +416,8 @@
 <script type="text/javascript" src ="../public/js/change-password.js"></script>
 <script type="text/javascript" src ="../public/js/change-active.js"></script>
 <script type="text/javascript" src ="../public/js/check-export.js"></script>
-<script type="text/javascript" src ="../public/js/bootstrap-datepicker.min.js"></script>
 
+<script type="text/javascript" src ="../public/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src ="../public/plugin/bootstrap-5.1.3/dist/js/bootstrap.js"></script>
 
 </body>

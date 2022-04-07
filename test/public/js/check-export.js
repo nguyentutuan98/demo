@@ -1,5 +1,6 @@
 $('#select-all').click(function(event) {   
-    if(this.checked) {
+   
+	if(this.checked) {
         // Iterate each checkbox
         $('.choose').each(function() {
             this.checked = true;                        
@@ -10,56 +11,53 @@ $('#select-all').click(function(event) {
         });
     }
 });
+  function removeElement(array, elem) {
+      var index = array.indexOf(elem);
+      if (index > -1) {
+          array.splice(index, 1);
+      }
+  }
+      
 $(document).ready(function(){
-
-		var data = [];
+		
+		var check=[];
          $('.choose').click(function(){
     	if ($(this).prop('checked') == true)
     	{ 
     		$(this).each(function(){
-    		var id=$(this).val();
-    		console.log(id);
-    		data.push(id);
-    		console.log(data);
-    		});
-
-
     		
+    		check.push($(this).val());
+    		console.log(check);
+    	
+    		});
     	}
-		else if($(this).prop('checked') == true)
-			
-		{
-			
-		}
-	
-       
-       
-       $.ajaxSetup({
+    	else if ($(this).prop('checked') == false)
+    	{
+    		$(this).each(function(){
+    		
+    		removeElement(check,$(this).val());
+    	
+    		});
+    	}
+				
+		
+		
+			$.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
             });
-		$.ajax({
-			url:"export",
-			method:"get",
-			data:{
-				"_token": $("input[name=_token]").val(),
-				
-				
-				data:data,
-
-			},
-			})/*.done(function(res){
-				if(res.code == 200)
-				{
+			$.ajax({
+				url:"getid",
+				method:"get",
+				data:{
+					"_token": $("input[name=_token]").val(),
+					check:check,
 					
-					location.reload();
-				}
-				else
-				{
-					alert('fail');
-				}
-			});*/
-   
-   });
+	
+				},
+			});
+		
+			
+});
 });
